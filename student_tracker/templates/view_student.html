@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<div class="container">
+
+<h1>Student Details</h1>
+
+{% if details %}
+
+<p><strong>Name:</strong> {{ details[0]["name"] }}</p>
+<p><strong>Roll Number:</strong> {{ details[0]["roll_number"] }}</p>
+
+<h3>Grades</h3>
+
+<table>
+    <tr>
+        <th>Subject</th>
+        <th>Marks</th>
+    </tr>
+
+    {% for g in details[1] %}
+        <tr>
+            <td>{{ g["subject"] }}</td>
+            <td>{{ g["marks"] }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<div class="average-box">
+    <strong>Average Marks:</strong> {{ avg }}
+</div>
+
+{% else %}
+<p>Student Not Found!</p>
+{% endif %}
+
+<br>
+<a href="/" class="btn">Back</a>
+
+</div>
+
+</body>
+</html>
